@@ -25,12 +25,18 @@
 - Renomeando o context
 - Faça como eu fiz
 - O que aprendi?
+  - Criando seus blocs e cubit
+  - BlocProvider, BlocConsumer, BlocBuilder
+  - Cubit
+  - Gerenciando seu estado
+  - Primitivo e objeto como estado
+
 
 ### Integrando telas
 - Integrando telas
 - Outros tipos de widgets de bloc
 - Faça como eu fiz
-- O que aprendemos?
+- O que aprendi?
 
 ### Criando um framework
 - Lembrando como o estado funciona

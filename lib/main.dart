@@ -1,10 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mybank/screens/counter_container.dart';
+import 'package:mybank/screens/name_container.dart';
 
 import 'components/theme.dart';
-import 'screens/counter_container.dart';
 
 void main() {
-  runApp(const MyBankApp());
+  BlocOverrides.runZoned(
+    () => runApp(const MyBankApp()),
+    blocObserver: LogObserver(),
+  );
+}
+
+class LogObserver extends BlocObserver {
+  @override
+  void onChange(BlocBase bloc, Change change) {
+    print('${bloc.runtimeType} > $change');
+    super.onChange(bloc, change);
+  }
 }
 
 class MyBankApp extends StatelessWidget {
