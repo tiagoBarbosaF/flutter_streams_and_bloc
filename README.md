@@ -37,12 +37,18 @@
 - Outros tipos de widgets de bloc
 - Faça como eu fiz
 - O que aprendi?
+  - Mais widgets
+  - Integrando telas
+  - BlocListener
 
 ### Criando um framework
 - Lembrando como o estado funciona
 - Estados, telas e polimorfismo
 - Faça como eu fiz
 - O que aprendi?
+  - Criando um framework pra gerenciamento de estado
+  - Separando UI, estado, e eventos
+  - Polimorfismo em DART
 
 ### Formulários e bloc
 - Envio e sucesso assíncrono com bloc
@@ -53,13 +59,25 @@
 - Para saber mais: Documentação
 - Conclusão
 - O que aprendi?
+  - como lidar com assincronicidade no meio de uma tela
+  - formulários e bloc
+  - envio e sucesso assíncrono
+  - falha assíncrona
 
 ***
 
 ## Flutter project screens - myBank App
-<!-- <p float="left">
-<img src="assets/img/screen01.png" width="200">
-<img src="assets/img/screen02.png" width="200">
-<img src="assets/img/screen03.png" width="200">
-<img src="assets/img/screen04.png" width="200">
-</p> -->
+<p float="left">
+<img src="assets/img/Screenshot (1).png" width="200">
+<img src="assets/img/Screenshot (2).png" width="200">
+<img src="assets/img/Screenshot (3).png" width="200">
+<img src="assets/img/Screenshot (4).png" width="200">
+<img src="assets/img/Screenshot (5).png" width="200">
+<img src="assets/img/Screenshot (6).png" width="200">
+<img src="assets/img/Screenshot (7).png" width="200">
+<img src="assets/img/Screenshot (8).png" width="200">
+<img src="assets/img/Screenshot (9).png" width="200">
+<img src="assets/img/Screenshot (10).png" width="200">
+<img src="assets/img/Screenshot (11).png" width="200">
+<img src="assets/img/Screenshot (12).png" width="200">
+</p>

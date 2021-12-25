@@ -3,6 +3,7 @@ import 'package:mybank/components/centered_message.dart';
 import 'package:mybank/components/progress.dart';
 import 'package:mybank/http/webclients/transaction_webclient.dart';
 import 'package:mybank/models/transaction.dart';
+import 'package:intl/intl.dart';
 
 class TransactionsList extends StatelessWidget {
   final TransactionWebClient _webClient = TransactionWebClient();
@@ -22,7 +23,7 @@ class TransactionsList extends StatelessWidget {
             case ConnectionState.none:
               break;
             case ConnectionState.waiting:
-              return const Progress();
+              return const Progress(message: "Loading ...");
               // ignore: dead_code
               break;
             case ConnectionState.active:
@@ -37,24 +38,36 @@ class TransactionsList extends StatelessWidget {
                       final Transaction transaction = transactions[index];
                       return Card(
                         child: ListTile(
-                          leading: const Icon(Icons.monetization_on),
+                          leading: Icon(Icons.monetization_on,
+                              color: Theme.of(context).colorScheme.primary),
                           title: Text(
-                            'Value: ${transaction.value.toString()}',
-                            style: const TextStyle(
-                              fontSize: 24.0,
-                              fontWeight: FontWeight.bold,
-                            ),
+                            transaction.contact.fullName,
+                            style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Theme.of(context).colorScheme.primary),
                           ),
                           subtitle: Text(
-                            'Account Number: ${transaction.contact.accountNumber.toString()}',
+                            'Account: ${transaction.contact.accountNumber.toString()}',
                             style: const TextStyle(
                               fontSize: 16.0,
+                            ),
+                          ),
+                          trailing: Text(
+                            NumberFormat.simpleCurrency(
+                                    name: "BRL", decimalDigits: 2)
+                                .format(transaction.value),
+                            style: const TextStyle(
+                              fontSize: 22.0,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
                       );
                     },
                     itemCount: transactions.length,
+                    reverse: true,
+                    shrinkWrap: true,
                   );
                 }
               }
@@ -65,7 +78,7 @@ class TransactionsList extends StatelessWidget {
               // ignore: dead_code
               break;
           }
-          return const CenteredMessage('Unknow error');
+          return const CenteredMessage('Unknown error');
         },
       ),
     );

@@ -23,46 +23,47 @@ class _ContactFormState extends State<ContactForm> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            TextField(
-              controller: _fullNameController,
-              decoration: const InputDecoration(
-                labelText: 'Full Name',
-              ),
-              style: const TextStyle(fontSize: 24.0),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 8.0),
-              child: TextField(
-                controller: _accountNumber,
-                decoration: const InputDecoration(
-                  labelText: 'Account number',
+            Column(
+              children: [
+                TextField(
+                  controller: _fullNameController,
+                  autofocus: true,
+                  autocorrect: true,
+                  decoration: const InputDecoration(
+                    labelText: 'Full Name',
+                  ),
+                  style: const TextStyle(fontSize: 24.0),
                 ),
-                style: const TextStyle(fontSize: 24.0),
-                keyboardType: TextInputType.number,
-              ),
+                TextField(
+                  controller: _accountNumber,
+                  decoration: const InputDecoration(
+                    labelText: 'Account number',
+                  ),
+                  style: const TextStyle(fontSize: 24.0),
+                  keyboardType: TextInputType.number,
+                ),
+              ],
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 16.0),
-              child: SizedBox(
-                width: double.maxFinite,
-                child: ElevatedButton(
-                  onPressed: () {
-                    final String fullName = _fullNameController.text;
-                    final int? accountNumber =
-                        int.tryParse(_accountNumber.text);
-                    final Contact newContact =
-                        Contact(0, fullName, accountNumber);
-                    _contactDao.save(newContact).then(
-                          (id) => Navigator.pop(context),
-                        );
-                  },
-                  child: const Text(
-                    'Create',
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.bold,
-                    ),
+            SizedBox(
+              width: double.maxFinite,
+              child: ElevatedButton(
+                onPressed: () {
+                  final String fullName = _fullNameController.text;
+                  final int? accountNumber =
+                      int.tryParse(_accountNumber.text);
+                  final Contact newContact =
+                      Contact(0, fullName, accountNumber);
+                  _contactDao.save(newContact).then(
+                        (id) => Navigator.pop(context),
+                      );
+                },
+                child: const Text(
+                  'Create',
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),

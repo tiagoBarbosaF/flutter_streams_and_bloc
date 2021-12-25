@@ -1,13 +1,20 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mybank/screens/counter_container.dart';
-import 'package:mybank/screens/name_container.dart';
+import 'package:mybank/screens/dashboard.dart';
+import 'package:device_preview/device_preview.dart';
 
 import 'components/theme.dart';
 
 void main() {
   BlocOverrides.runZoned(
-    () => runApp(const MyBankApp()),
+    () => runApp(
+      DevicePreview(
+        enabled: true,
+        builder: (context) => const MyBankApp(),
+      ),
+    ),
     blocObserver: LogObserver(),
   );
 }
@@ -27,7 +34,7 @@ class MyBankApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: mybankTheme,
-      home: const CounterContainer(),
+      home: const DashboardContainer(),
     );
   }
 }
